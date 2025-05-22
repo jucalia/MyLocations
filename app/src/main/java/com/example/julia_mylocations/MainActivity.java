@@ -29,15 +29,24 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id){
         String aux = l.getItemAtPosition(position).toString();
+        Intent intent = new Intent(this, SecondActivity.class);
 
         Toast.makeText(this, aux, Toast.LENGTH_SHORT).show();
 
-        if (position == 3) {
-            finish(); // fecha app
-        } else {
-            Intent intent = new Intent(this, SecondActivity.class);
-            intent.putExtra("location_id", position);
-            startActivity(intent);
+        switch(position){
+            case 0:
+                intent.putExtra("location_id", position);
+                startActivity(intent);
+            case 1:
+                intent.putExtra("location_id", position);
+                startActivity(intent);
+            case 2:
+                intent.putExtra("location_id", position);
+                startActivity(intent);
+            case 3:
+                finish(); //fecha o app
+
         }
+
     }
 }
